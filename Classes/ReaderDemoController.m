@@ -34,7 +34,7 @@
 
 #pragma mark Constants
 
-#define DEMO_VIEW_CONTROLLER_PUSH FALSE
+#define DEMO_VIEW_CONTROLLER_PUSH TRUE
 
 #pragma mark UIViewController methods
 

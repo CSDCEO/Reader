@@ -49,6 +49,7 @@
 #define PRINT_BUTTON_WIDTH 40.0f
 #define EMAIL_BUTTON_WIDTH 40.0f
 #define MARK_BUTTON_WIDTH 40.0f
+#define ANNOTATE_BUTTON_WIDTH 40.0f
 
 #define TITLE_HEIGHT 28.0f
 
@@ -120,12 +121,31 @@
 
 #endif // end of READER_ENABLE_THUMBS Option
 
-#if (READER_BOOKMARKS == TRUE || READER_ENABLE_MAIL == TRUE || READER_ENABLE_PRINT == TRUE)
+#if (READER_BOOKMARKS == TRUE || READER_ENABLE_MAIL == TRUE || READER_ENABLE_PRINT == TRUE || READER_ANNOTATIONS == TRUE)
 
 		CGFloat rightButtonX = viewWidth; // Right button start X position
 
 #endif // end of READER_BOOKMARKS || READER_ENABLE_MAIL || READER_ENABLE_PRINT Options
 
+        
+#if (READER_ANNOTATIONS == TRUE) // Option
+        rightButtonX -= (ANNOTATE_BUTTON_WIDTH + BUTTON_SPACE);
+        
+        UIButton *annoButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        
+        annoButton.frame = CGRectMake(rightButtonX, BUTTON_Y, ANNOTATE_BUTTON_WIDTH, BUTTON_HEIGHT);
+        [annoButton addTarget:self action:@selector(null) forControlEvents:UIControlEventTouchUpInside];
+        [annoButton setBackgroundImage:buttonH forState:UIControlStateHighlighted];
+        [annoButton setBackgroundImage:buttonN forState:UIControlStateHighlighted];
+        annoButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+        annoButton.exclusiveTouch = YES;
+        
+        [self addSubview:annoButton];
+        titleWidth -= (ANNOTATE_BUTTON_WIDTH + BUTTON_SPACE);
+        
+        
+#endif
+        
 #if (READER_BOOKMARKS == TRUE) // Option
 
 		rightButtonX -= (MARK_BUTTON_WIDTH + BUTTON_SPACE);

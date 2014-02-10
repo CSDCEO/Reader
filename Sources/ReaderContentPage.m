@@ -544,19 +544,38 @@
 	ReaderContentPage *readerContentPage = self; // Retain self
 
 	CGContextSetRGBFillColor(context, 1.0f, 1.0f, 1.0f, 1.0f); // White
-
 	CGContextFillRect(context, CGContextGetClipBoundingBox(context)); // Fill
 
 	//NSLog(@"%s %@", __FUNCTION__, NSStringFromCGRect(CGContextGetClipBoundingBox(context)));
 
 	CGContextTranslateCTM(context, 0.0f, self.bounds.size.height); CGContextScaleCTM(context, 1.0f, -1.0f);
-
 	CGContextConcatCTM(context, CGPDFPageGetDrawingTransform(_PDFPageRef, kCGPDFCropBox, self.bounds, 0, true));
 
 	//CGContextSetRenderingIntent(context, kCGRenderingIntentDefault); CGContextSetInterpolationQuality(context, kCGInterpolationDefault);
 
 	CGContextDrawPDFPage(context, _PDFPageRef); // Render the PDF page into the context
 
+    UIGraphicsBeginImageContext(self.frame.size);
+    CGContextSetAlpha(context, 1);
+    CGContextSetStrokeColorWithColor(context,[[UIColor redColor] CGColor]);
+    CGContextSetLineWidth(context, 2);
+    CGContextSetLineCap(context, kCGLineCapRound);
+    CGContextSetLineJoin(context, kCGLineJoinRound);
+
+    
+    CGMutablePathRef linePath = CGPathCreateMutable();
+    CGPathMoveToPoint(linePath, NULL, 0, 0);
+    CGPathAddLineToPoint(linePath, NULL, 200, 200);
+    CGPathAddLineToPoint(linePath, NULL, 210, 300);
+    
+    CGContextBeginPath(context);
+    CGContextAddPath(context, linePath);
+    
+    CGContextStrokePath(context);
+    //  CGContextClosePath(context);
+  
+    
+    UIGraphicsEndImageContext();
 	if (readerContentPage != nil) readerContentPage = nil; // Release self
 }
 
