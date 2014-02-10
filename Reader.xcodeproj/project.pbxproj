@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		07D852E418A93A0100E81CDA /* Reader-Annotate.png in Resources */ = {isa = PBXBuildFile; fileRef = 07D852E218A93A0100E81CDA /* Reader-Annotate.png */; };
 		07D852E518A93A0100E81CDA /* Reader-Annotate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07D852E318A93A0100E81CDA /* Reader-Annotate@2x.png */; };
+		07D852E818A967D900E81CDA /* Reader-Annotate-H@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07D852E618A967D900E81CDA /* Reader-Annotate-H@2x.png */; };
+		07D852E918A967D900E81CDA /* Reader-Annotate-H.png in Resources */ = {isa = PBXBuildFile; fileRef = 07D852E718A967D900E81CDA /* Reader-Annotate-H.png */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
@@ -71,6 +73,8 @@
 /* Begin PBXFileReference section */
 		07D852E218A93A0100E81CDA /* Reader-Annotate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Reader-Annotate.png"; sourceTree = "<group>"; };
 		07D852E318A93A0100E81CDA /* Reader-Annotate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Reader-Annotate@2x.png"; sourceTree = "<group>"; };
+		07D852E618A967D900E81CDA /* Reader-Annotate-H@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Reader-Annotate-H@2x.png"; sourceTree = "<group>"; };
+		07D852E718A967D900E81CDA /* Reader-Annotate-H.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Reader-Annotate-H.png"; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -280,6 +284,8 @@
 		45943FC417FDCA3E003CC77A /* Reader */ = {
 			isa = PBXGroup;
 			children = (
+				07D852E618A967D900E81CDA /* Reader-Annotate-H@2x.png */,
+				07D852E718A967D900E81CDA /* Reader-Annotate-H.png */,
 				07D852E218A93A0100E81CDA /* Reader-Annotate.png */,
 				07D852E318A93A0100E81CDA /* Reader-Annotate@2x.png */,
 				455C789914268F6A0053D73B /* Reader-Button-H.png */,
@@ -422,8 +428,10 @@
 				45AB72D0141FBFCA003524C3 /* Reader-Print@2x.png in Resources */,
 				45AB72D1141FBFCA003524C3 /* Reader-Thumbs.png in Resources */,
 				45AB72D2141FBFCA003524C3 /* Reader-Thumbs@2x.png in Resources */,
+				07D852E918A967D900E81CDA /* Reader-Annotate-H.png in Resources */,
 				45AB72DC141FC039003524C3 /* Reader.pdf in Resources */,
 				45AB72DE141FC043003524C3 /* LICENSE.md in Resources */,
+				07D852E818A967D900E81CDA /* Reader-Annotate-H@2x.png in Resources */,
 				45AB72E0141FC04B003524C3 /* README.md in Resources */,
 				455C789D14268F6A0053D73B /* Reader-Button-H.png in Resources */,
 				455C789E14268F6A0053D73B /* Reader-Button-H@2x.png in Resources */,

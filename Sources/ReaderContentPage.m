@@ -45,6 +45,14 @@
 	CGFloat _pageOffsetY;
 }
 
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    float test;
+    test =0;
+    
+}
+
 #pragma mark ReaderContentPage class methods
 
 + (Class)layerClass
@@ -580,6 +588,8 @@
 }
 
 @end
+
+
 
 #pragma mark -
 

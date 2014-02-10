@@ -50,6 +50,9 @@
 - (id)initWithFrame:(CGRect)frame document:(ReaderDocument *)object;
 
 - (void)setBookmarkState:(BOOL)state;
+- (void)setAnnotationState:(BOOL)state;
+
+- (BOOL)getAnnotationState;
 
 - (void)hideToolbar;
 - (void)showToolbar;

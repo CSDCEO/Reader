@@ -42,6 +42,7 @@
 @interface ReaderContentView : UIScrollView
 
 @property (nonatomic, weak, readwrite) id <ReaderContentViewDelegate> message;
+@property (nonatomic) BOOL annotateMode;
 
 - (id)initWithFrame:(CGRect)frame fileURL:(NSURL *)fileURL page:(NSUInteger)page password:(NSString *)phrase;
 
@@ -52,6 +53,8 @@
 - (void)zoomIncrement;
 - (void)zoomDecrement;
 - (void)zoomReset;
+
+
 
 @end
 

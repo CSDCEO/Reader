@@ -35,6 +35,13 @@
 
 	UIImage *markImageN;
 	UIImage *markImageY;
+    
+    
+    
+    UIButton *annotateButton;
+    UIImage  *annoImageN;
+    UIImage  *annoImageY;
+    
 }
 
 #pragma mark Constants
@@ -77,6 +84,15 @@
 
 		UIImage *buttonH = [imageH stretchableImageWithLeftCapWidth:5 topCapHeight:0];
 		UIImage *buttonN = [imageN stretchableImageWithLeftCapWidth:5 topCapHeight:0];
+        
+        //annotate button
+        UIImage *aImageH = [UIImage imageNamed:@"Reader-Annotate-H"];
+		UIImage *aImageN = [UIImage imageNamed:@"Reader-Annotate"];
+        
+		UIImage *aButtonH = [aImageH stretchableImageWithLeftCapWidth:5 topCapHeight:0];
+		UIImage *aButtonN = [aImageN stretchableImageWithLeftCapWidth:5 topCapHeight:0];
+        
+        
 
 		CGFloat titleX = BUTTON_X; CGFloat titleWidth = (viewWidth - (titleX + titleX));
 
@@ -144,7 +160,11 @@
         [self addSubview:annoButton];
         titleWidth -= (ANNOTATE_BUTTON_WIDTH + BUTTON_SPACE);
         
-        
+        annotateButton = annoButton;
+        annotateButton.enabled  =   NO;
+        annotateButton.tag = NSIntegerMin;
+        annoImageN = [UIImage imageNamed:@"Reader-Annotate"];
+        annoImageY= [UIImage imageNamed:@"Reader-Annotate-H"];
         
         
 #endif
@@ -247,6 +267,28 @@
 	}
 
 	return self;
+}
+
+- (void)setAnnotationState:(BOOL)state
+{
+#if (READER_ANNOTATIONS == TRUE)
+    if (state != annotateButton.tag)
+    {
+        if (self.hidden == NO)
+        {
+            UIImage *image = (state ? annoImageY : annoImageN);
+            [annotateButton setImage:image forState:UIControlStateNormal];
+        }
+        annotateButton.tag = state;
+        
+    }
+    if (annotateButton.enabled == NO) annotateButton.enabled = YES;
+#endif
+}
+
+-(BOOL)getAnnotationState
+{
+    return annotateButton.tag;
 }
 
 - (void)setBookmarkState:(BOOL)state

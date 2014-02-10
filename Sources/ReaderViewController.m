@@ -278,6 +278,8 @@
 	document.lastOpen = [NSDate date]; // Update last opened date
 
 	isVisible = YES; // iOS present modal bodge
+    [mainToolbar setAnnotationState:NO];
+   
 }
 
 #pragma mark UIViewController methods
@@ -524,6 +526,8 @@
 	theScrollView.tag = 0; // Clear page number tag
 }
 
+
+
 #pragma mark UIGestureRecognizerDelegate methods
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)recognizer shouldReceiveTouch:(UITouch *)touch
@@ -735,7 +739,7 @@
 			if (CGRectContainsPoint(areaRect, point) == false) return;
 		}
 
-		[mainToolbar hideToolbar]; [mainPagebar hidePagebar]; // Hide
+		if (mainToolbar.getAnnotationState == NO) [mainToolbar hideToolbar]; [mainPagebar hidePagebar]; // Hide
 
 		lastHideTime = [NSDate date];
 	}
@@ -744,7 +748,9 @@
 #pragma mark ReaderMainToolbarDelegate methods
 -(void)tappedInToolbar:(ReaderMainToolbar *)toolbar annotateButton:(UIButton *)button
 {
-    
+    [mainToolbar setAnnotationState: ![mainToolbar getAnnotationState]];
+    theScrollView.scrollEnabled = !mainToolbar.getAnnotationState;
+    [mainToolbar showToolbar];
 }
 
 
