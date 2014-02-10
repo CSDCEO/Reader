@@ -85,12 +85,6 @@
 		UIImage *buttonH = [imageH stretchableImageWithLeftCapWidth:5 topCapHeight:0];
 		UIImage *buttonN = [imageN stretchableImageWithLeftCapWidth:5 topCapHeight:0];
         
-        //annotate button
-        UIImage *aImageH = [UIImage imageNamed:@"Reader-Annotate-H"];
-		UIImage *aImageN = [UIImage imageNamed:@"Reader-Annotate"];
-        
-		UIImage *aButtonH = [aImageH stretchableImageWithLeftCapWidth:5 topCapHeight:0];
-		UIImage *aButtonN = [aImageN stretchableImageWithLeftCapWidth:5 topCapHeight:0];
         
         
 
