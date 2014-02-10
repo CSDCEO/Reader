@@ -134,14 +134,17 @@
         UIButton *annoButton = [UIButton buttonWithType:UIButtonTypeCustom];
         
         annoButton.frame = CGRectMake(rightButtonX, BUTTON_Y, ANNOTATE_BUTTON_WIDTH, BUTTON_HEIGHT);
-        [annoButton addTarget:self action:@selector(null) forControlEvents:UIControlEventTouchUpInside];
+        [annoButton addTarget:self action:@selector(annotateButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+        [annoButton setImage:[UIImage imageNamed:@"Reader-Annotate"] forState:UIControlStateNormal];
         [annoButton setBackgroundImage:buttonH forState:UIControlStateHighlighted];
-        [annoButton setBackgroundImage:buttonN forState:UIControlStateHighlighted];
+        [annoButton setBackgroundImage:buttonN forState:UIControlStateNormal];
         annoButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
         annoButton.exclusiveTouch = YES;
         
         [self addSubview:annoButton];
         titleWidth -= (ANNOTATE_BUTTON_WIDTH + BUTTON_SPACE);
+        
+        
         
         
 #endif
@@ -347,5 +350,11 @@
 {
 	[delegate tappedInToolbar:self markButton:button];
 }
+
+- (void)annotateButtonTapped:(UIButton *)button
+{
+    [delegate tappedInToolbar:self annotateButton:button];
+}
+
 
 @end

@@ -742,6 +742,11 @@
 }
 
 #pragma mark ReaderMainToolbarDelegate methods
+-(void)tappedInToolbar:(ReaderMainToolbar *)toolbar annotateButton:(UIButton *)button
+{
+    
+}
+
 
 - (void)tappedInToolbar:(ReaderMainToolbar *)toolbar doneButton:(UIButton *)button
 {
