@@ -11,6 +11,8 @@
 		07D852E518A93A0100E81CDA /* Reader-Annotate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07D852E318A93A0100E81CDA /* Reader-Annotate@2x.png */; };
 		07D852E818A967D900E81CDA /* Reader-Annotate-H@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07D852E618A967D900E81CDA /* Reader-Annotate-H@2x.png */; };
 		07D852E918A967D900E81CDA /* Reader-Annotate-H.png in Resources */ = {isa = PBXBuildFile; fileRef = 07D852E718A967D900E81CDA /* Reader-Annotate-H.png */; };
+		07D852ED18A96BAA00E81CDA /* Line.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D852EC18A96BAA00E81CDA /* Line.m */; };
+		07D852F018AA55E600E81CDA /* CanvasView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D852EF18AA55E600E81CDA /* CanvasView.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
@@ -75,6 +77,10 @@
 		07D852E318A93A0100E81CDA /* Reader-Annotate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Reader-Annotate@2x.png"; sourceTree = "<group>"; };
 		07D852E618A967D900E81CDA /* Reader-Annotate-H@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Reader-Annotate-H@2x.png"; sourceTree = "<group>"; };
 		07D852E718A967D900E81CDA /* Reader-Annotate-H.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Reader-Annotate-H.png"; sourceTree = "<group>"; };
+		07D852EB18A96BAA00E81CDA /* Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Line.h; sourceTree = "<group>"; };
+		07D852EC18A96BAA00E81CDA /* Line.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Line.m; sourceTree = "<group>"; };
+		07D852EE18AA55E600E81CDA /* CanvasView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasView.h; sourceTree = "<group>"; };
+		07D852EF18AA55E600E81CDA /* CanvasView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanvasView.m; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -178,6 +184,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07D852EA18A96B9D00E81CDA /* Line */ = {
+			isa = PBXGroup;
+			children = (
+				07D852EE18AA55E600E81CDA /* CanvasView.h */,
+				07D852EF18AA55E600E81CDA /* CanvasView.m */,
+				07D852EB18A96BAA00E81CDA /* Line.h */,
+				07D852EC18A96BAA00E81CDA /* Line.m */,
+			);
+			name = Line;
+			sourceTree = "<group>";
+		};
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,6 +353,7 @@
 		45CED630140BD22A0092F460 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				07D852EA18A96B9D00E81CDA /* Line */,
 				45AB72ED141FC0B1003524C3 /* CGPDFDocument.h */,
 				45AB72EE141FC0B1003524C3 /* CGPDFDocument.m */,
 				45D5ADA11610EADC00706B9A /* ReaderDocumentOutline.h */,
@@ -453,11 +471,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07D852F018AA55E600E81CDA /* CanvasView.m in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				45AB72EB141FC0A2003524C3 /* ReaderAppDelegate.m in Sources */,
 				45AB72EC141FC0A2003524C3 /* ReaderDemoController.m in Sources */,
 				45AB7313141FC0B1003524C3 /* CGPDFDocument.m in Sources */,
 				45AB7314141FC0B1003524C3 /* ReaderConstants.m in Sources */,
+				07D852ED18A96BAA00E81CDA /* Line.m in Sources */,
 				45AB7315141FC0B1003524C3 /* ReaderContentPage.m in Sources */,
 				45AB7316141FC0B1003524C3 /* ReaderContentTile.m in Sources */,
 				45AB7317141FC0B1003524C3 /* ReaderContentView.m in Sources */,

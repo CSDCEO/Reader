@@ -46,12 +46,105 @@
 }
 
 
+#pragma mark ReaderContentPage touches
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    float test;
-    test =0;
+    UITouch *touch = [touches anyObject];
+    CGPoint cPoint = [touch locationInView:self];
     
+    float tX;
+    float tY;
+    
+    switch (_pageAngle) // Page rotation angle (in degrees)
+    {
+        default: // Default case
+        case 0: case 180: // 0 and 180 degrees
+        {
+            tX = cPoint.x;
+            tY = _pageHeight-cPoint.y;
+            break;
+        }
+            
+        case 90: case 270: // 90 and 270 degrees
+        {
+            tX = _pageHeight-cPoint.y;
+            tY = cPoint.x;
+            break;
+        }
+    }
+    
+    
+	CGPathMoveToPoint(self.currentLine.linePath, NULL, tX, tY);
+    
+    [self setNeedsDisplay];
 }
+
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+	CGPoint cPoint = [touch locationInView:self];
+    
+    float tX;
+    float tY;
+    
+    switch (_pageAngle) // Page rotation angle (in degrees)
+    {
+        default: // Default case
+        case 0: case 180: // 0 and 180 degrees
+        {
+            tX = cPoint.x;
+            tY = _pageHeight -cPoint.y;
+            break;
+        }
+            
+        case 90: case 270: // 90 and 270 degrees
+        {
+            tX = _pageHeight-cPoint.y;
+            tY = cPoint.x;
+            break;
+        }
+    }
+    
+    
+    CGPathAddLineToPoint(self.currentLine.linePath, NULL, tX, tY);
+	
+    [self setNeedsDisplay];
+}
+
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    CGPoint cPoint = [touch locationInView:self];
+    float tX;
+    float tY;
+    
+    switch (_pageAngle) // Page rotation angle (in degrees)
+    {
+        default: // Default case
+        case 0: case 180: // 0 and 180 degrees
+        {
+            tX = cPoint.x;
+            tY = _pageHeight-cPoint.y;
+            break;
+        }
+            
+        case 90: case 270: // 90 and 270 degrees
+        {
+            tX = _pageHeight-cPoint.y;
+            tY = cPoint.x;
+            break;
+        }
+    }
+    CGPathAddLineToPoint(self.currentLine.linePath, NULL, tX, tY);
+    
+    [self setNeedsDisplay];
+    [self.lines addObject:self.currentLine];
+    Line *nextLine = [[Line alloc] initWithOptions:self.currentLine.lineWidth color:self.currentLine.lineColor opacity:self.currentLine.opacity];
+    self.currentLine = nextLine;
+
+}
+
 
 #pragma mark ReaderContentPage class methods
 
@@ -517,6 +610,12 @@
 
 	if (view != nil) [self buildAnnotationLinksList]; // Links
 
+    
+    
+    self.currentLine = [[Line alloc] init];
+    self.lines   = [[NSMutableArray alloc]init];
+    
+    
 	return view;
 }
 
@@ -563,27 +662,43 @@
 
 	CGContextDrawPDFPage(context, _PDFPageRef); // Render the PDF page into the context
 
-    UIGraphicsBeginImageContext(self.frame.size);
-    CGContextSetAlpha(context, 1);
-    CGContextSetStrokeColorWithColor(context,[[UIColor redColor] CGColor]);
-    CGContextSetLineWidth(context, 2);
+    
+    //draw lines here
+  //  UIGraphicsBeginImageContext(self.frame.size);
+    
+    // draw accumulated lines
+    if ([self.lines count] > 0) {
+        for (Line *tempLine in self.lines){
+            CGContextSetAlpha(context, tempLine.opacity);
+            CGContextSetStrokeColorWithColor(context, tempLine.lineColor.CGColor);
+            CGContextSetLineWidth(context, tempLine.lineWidth);
+            CGContextSetLineCap(context, kCGLineCapRound);
+            CGContextSetLineJoin(context, kCGLineJoinRound);
+            CGContextAddPath(context, tempLine.linePath);
+            CGContextStrokePath(context);
+            
+        }
+    }
+    
+    //draw current line
+    CGContextSetAlpha(context, self.currentLine.opacity);
+    
+    
+    CGContextSetStrokeColorWithColor(context, self.currentLine.lineColor.CGColor);
+    CGContextSetLineWidth(context, self.currentLine.lineWidth);
     CGContextSetLineCap(context, kCGLineCapRound);
     CGContextSetLineJoin(context, kCGLineJoinRound);
-
-    
-    CGMutablePathRef linePath = CGPathCreateMutable();
-    CGPathMoveToPoint(linePath, NULL, 0, 0);
-    CGPathAddLineToPoint(linePath, NULL, 200, 200);
-    CGPathAddLineToPoint(linePath, NULL, 210, 300);
-    
     CGContextBeginPath(context);
-    CGContextAddPath(context, linePath);
-    
+    CGContextAddPath(context, self.currentLine.linePath);
     CGContextStrokePath(context);
-    //  CGContextClosePath(context);
-  
     
-    UIGraphicsEndImageContext();
+    
+	//UIGraphicsEndImageContext();
+    
+    
+    
+    
+    
 	if (readerContentPage != nil) readerContentPage = nil; // Release self
 }
 

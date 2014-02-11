@@ -726,6 +726,7 @@
 
 - (void)contentView:(ReaderContentView *)contentView touchesBegan:(NSSet *)touches
 {
+            contentView.annotateMode = mainToolbar.getAnnotationState;
 	if ((mainToolbar.hidden == NO) || (mainPagebar.hidden == NO))
 	{
 		if (touches.count == 1) // Single touches only
@@ -742,6 +743,7 @@
 		if (mainToolbar.getAnnotationState == NO) [mainToolbar hideToolbar]; [mainPagebar hidePagebar]; // Hide
 
 		lastHideTime = [NSDate date];
+
 	}
 }
 

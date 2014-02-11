@@ -24,12 +24,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Line.h"
 @interface ReaderContentPage : UIView
 
 - (id)initWithURL:(NSURL *)fileURL page:(NSInteger)page password:(NSString *)phrase;
-
 - (id)processSingleTap:(UITapGestureRecognizer *)recognizer;
+
+@property (nonatomic, retain) NSMutableArray *lines;
+@property (nonatomic, retain) Line           *currentLine;
 
 @end
 

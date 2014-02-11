@@ -289,25 +289,28 @@ static inline CGFloat ZoomScaleThatFits(CGSize target, CGSize source)
 {
 	[super touchesBegan:touches withEvent:event]; // Message superclass
 	[message contentView:self touchesBegan:touches]; // Message delegate
-    [theContentView touchesBegan:touches withEvent:event];
+    if (annotateMode)   [theContentView touchesBegan:touches withEvent:event];
+    
+    self.scrollEnabled = !annotateMode;
+    
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
 	[super touchesCancelled:touches withEvent:event]; // Message superclass
-    [theContentView touchesCancelled:touches withEvent:event];
+    if (annotateMode)    [theContentView touchesCancelled:touches withEvent:event];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
 	[super touchesEnded:touches withEvent:event]; // Message superclass
-    [theContentView touchesEnded:touches withEvent:event];
+    if (annotateMode)    [theContentView touchesEnded:touches withEvent:event];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
 	[super touchesMoved:touches withEvent:event]; // Message superclass
-    [super touchesMoved:touches withEvent:event];
+    if (annotateMode)   [theContentView touchesMoved:touches withEvent:event];
 }
 
 
