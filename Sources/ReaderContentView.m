@@ -224,6 +224,7 @@ static inline CGFloat ZoomScaleThatFits(CGSize target, CGSize source)
 		viewFrame.origin.y = 0.0f;
 
 	theContainerView.frame = viewFrame;
+
 }
 
 - (id)processSingleTap:(UITapGestureRecognizer *)recognizer

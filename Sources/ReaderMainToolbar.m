@@ -35,9 +35,7 @@
 
 	UIImage *markImageN;
 	UIImage *markImageY;
-    
-    
-    
+  
     UIButton *annotateButton;
     UIImage  *annoImageN;
     UIImage  *annoImageY;
@@ -85,9 +83,6 @@
 		UIImage *buttonH = [imageH stretchableImageWithLeftCapWidth:5 topCapHeight:0];
 		UIImage *buttonN = [imageN stretchableImageWithLeftCapWidth:5 topCapHeight:0];
         
-        
-        
-
 		CGFloat titleX = BUTTON_X; CGFloat titleWidth = (viewWidth - (titleX + titleX));
 
 		CGFloat leftButtonX = BUTTON_X; // Left button start X position
@@ -245,13 +240,15 @@
 			UILabel *titleLabel = [[UILabel alloc] initWithFrame:titleRect];
 
 			titleLabel.textAlignment = NSTextAlignmentCenter;
-			titleLabel.font = [UIFont systemFontOfSize:19.0f];
+			titleLabel.font = [UIFont boldSystemFontOfSize:19.0f];
+
+
 			titleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 			titleLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
-			titleLabel.textColor = [UIColor colorWithWhite:0.0f alpha:1.0f];
-			titleLabel.shadowColor = [UIColor colorWithWhite:0.65f alpha:1.0f];
+			titleLabel.textColor = [UIColor colorWithWhite:1.0f alpha:1.0f];
+			titleLabel.shadowColor = [UIColor colorWithWhite:0.15f alpha:1.0f];
 			titleLabel.backgroundColor = [UIColor clearColor];
-			titleLabel.shadowOffset = CGSizeMake(0.0f, 1.0f);
+			titleLabel.shadowOffset = CGSizeMake(-1.0f, -1.0f);
 			titleLabel.adjustsFontSizeToFitWidth = YES;
 			titleLabel.minimumScaleFactor = 0.75f;
 			titleLabel.text = [object.fileName stringByDeletingPathExtension];

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Line.h"
-
+#import "CanvasContentTile.h"
 
 @interface CanvasView : UIView {
 

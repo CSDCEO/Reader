@@ -25,6 +25,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Line.h"
+#import "CanvasView.h"
 @interface ReaderContentPage : UIView
 
 - (id)initWithURL:(NSURL *)fileURL page:(NSInteger)page password:(NSString *)phrase;
@@ -32,6 +33,7 @@
 
 @property (nonatomic, retain) NSMutableArray *lines;
 @property (nonatomic, retain) Line           *currentLine;
+@property (nonatomic, retain) CanvasView     *Canvas;
 
 @end
 

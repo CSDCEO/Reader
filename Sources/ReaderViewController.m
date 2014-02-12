@@ -343,6 +343,8 @@
 	theScrollView.backgroundColor = [UIColor clearColor]; theScrollView.delegate = self;
 	[self.view addSubview:theScrollView];
 
+    
+    
 	CGRect toolbarRect = scrollViewRect; // Toolbar frame
 	toolbarRect.size.height = TOOLBAR_HEIGHT; // Default toolbar height
 	mainToolbar = [[ReaderMainToolbar alloc] initWithFrame:toolbarRect document:document]; // ReaderMainToolbar
@@ -355,6 +357,9 @@
 	mainPagebar = [[ReaderMainPagebar alloc] initWithFrame:pagebarRect document:document]; // ReaderMainPagebar
 	mainPagebar.delegate = self; // ReaderMainPagebarDelegate
 	[self.view addSubview:mainPagebar];
+    
+    
+    
 
 	if (fakeStatusBar != nil) [self.view addSubview:fakeStatusBar]; // Add status bar background view
 
@@ -740,7 +745,11 @@
 			if (CGRectContainsPoint(areaRect, point) == false) return;
 		}
 
-		if (mainToolbar.getAnnotationState == NO) [mainToolbar hideToolbar]; [mainPagebar hidePagebar]; // Hide
+		if (mainToolbar.getAnnotationState == NO)
+        {
+            [mainToolbar hideToolbar];
+            [mainPagebar hidePagebar]; // Hide
+        }
 
 		lastHideTime = [NSDate date];
 

@@ -13,6 +13,7 @@
 		07D852E918A967D900E81CDA /* Reader-Annotate-H.png in Resources */ = {isa = PBXBuildFile; fileRef = 07D852E718A967D900E81CDA /* Reader-Annotate-H.png */; };
 		07D852ED18A96BAA00E81CDA /* Line.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D852EC18A96BAA00E81CDA /* Line.m */; };
 		07D852F018AA55E600E81CDA /* CanvasView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D852EF18AA55E600E81CDA /* CanvasView.m */; };
+		07D852F318AA5FED00E81CDA /* CanvasContentTile.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D852F218AA5FED00E81CDA /* CanvasContentTile.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
@@ -81,6 +82,8 @@
 		07D852EC18A96BAA00E81CDA /* Line.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Line.m; sourceTree = "<group>"; };
 		07D852EE18AA55E600E81CDA /* CanvasView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasView.h; sourceTree = "<group>"; };
 		07D852EF18AA55E600E81CDA /* CanvasView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanvasView.m; sourceTree = "<group>"; };
+		07D852F118AA5FED00E81CDA /* CanvasContentTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasContentTile.h; sourceTree = "<group>"; };
+		07D852F218AA5FED00E81CDA /* CanvasContentTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanvasContentTile.m; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -191,6 +194,8 @@
 				07D852EF18AA55E600E81CDA /* CanvasView.m */,
 				07D852EB18A96BAA00E81CDA /* Line.h */,
 				07D852EC18A96BAA00E81CDA /* Line.m */,
+				07D852F118AA5FED00E81CDA /* CanvasContentTile.h */,
+				07D852F218AA5FED00E81CDA /* CanvasContentTile.m */,
 			);
 			name = Line;
 			sourceTree = "<group>";
@@ -484,6 +489,7 @@
 				45AB7318141FC0B1003524C3 /* ReaderDocument.m in Sources */,
 				45AB7319141FC0B1003524C3 /* ReaderMainPagebar.m in Sources */,
 				45AB731A141FC0B1003524C3 /* ReaderMainToolbar.m in Sources */,
+				07D852F318AA5FED00E81CDA /* CanvasContentTile.m in Sources */,
 				45AB731C141FC0B1003524C3 /* ReaderThumbCache.m in Sources */,
 				45AB731D141FC0B1003524C3 /* ReaderThumbFetch.m in Sources */,
 				45AB731E141FC0B1003524C3 /* ReaderThumbQueue.m in Sources */,
