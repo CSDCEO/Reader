@@ -10,6 +10,10 @@
 
 
 @implementation CanvasView
+{
+    BOOL drawing;
+    Line *lineBuffer;
+}
 
 @synthesize lines, currentLine;
 
@@ -25,7 +29,7 @@
     if ((self = [super initWithFrame:frame])) {
         
         self.currentLine = [[Line alloc] init];
-        self.lines = [[NSMutableArray alloc] init];
+        self.lines = [NSMutableArray arrayWithCapacity:10];
         
         self.autoresizesSubviews = NO;
         self.userInteractionEnabled = YES;
@@ -41,6 +45,7 @@
 // An empty implementation adversely affects performance during animation.
 -(void)drawLayer:(CALayer *)layer inContext:(CGContextRef)context
 {
+    drawing = YES;
     UIGraphicsBeginImageContext(self.frame.size);
     
     if ([self.lines count] > 0) {
@@ -56,10 +61,24 @@
         }
     }
     
+    if (lineBuffer)
+    {
+        [self.lines addObject:lineBuffer];
+        CGContextSetAlpha(context, lineBuffer.opacity);
+        CGContextSetStrokeColorWithColor(context, lineBuffer.lineColor.CGColor);
+        CGContextSetLineWidth(context, lineBuffer.lineWidth);
+        CGContextSetLineCap(context, kCGLineCapRound);
+        CGContextSetLineJoin(context, kCGLineJoinRound);
+        CGContextAddPath(context, lineBuffer.linePath);
+        CGContextStrokePath(context);
+        lineBuffer = NULL;
+        NSLog(@"LineBuffer");
+    }
+    
+    
     //draw current line
     CGContextSetAlpha(context, self.currentLine.opacity);
-    
-    
+  
     CGContextSetStrokeColorWithColor(context, self.currentLine.lineColor.CGColor);
     CGContextSetLineWidth(context, self.currentLine.lineWidth);
     CGContextSetLineCap(context, kCGLineCapRound);
@@ -69,7 +88,7 @@
     CGContextStrokePath(context);
  
     UIGraphicsEndImageContext();
-
+    drawing = NO;
 }
 
 
@@ -96,11 +115,20 @@
     CGPoint cPoint = [touch locationInView:self];
     CGPathAddLineToPoint(self.currentLine.linePath, NULL, cPoint.x, cPoint.y);
 
-    [self calcDrawRectWithTouches:touches];
-
-    [self.lines addObject:self.currentLine];
+    if (!drawing)
+    {
+        [self.lines addObject:self.currentLine];
+        lineBuffer = NULL;
+    }
+    else
+    {
+        lineBuffer = self.currentLine;
+    }
+    
     Line *nextLine = [[Line alloc] initWithOptions:self.currentLine.lineWidth color:self.currentLine.lineColor opacity:self.currentLine.opacity];
     self.currentLine = nextLine;
+    
+    [self calcDrawRectWithTouches:touches];
    }
 
 - (void)removeFromSuperview

@@ -11,7 +11,7 @@
 @implementation CanvasContentTile
 #pragma mark Constants
 
-#define LEVELS_OF_DETAIL 8
+#define LEVELS_OF_DETAIL 6
 
 #pragma mark CanvasContentTile class methods
 
@@ -28,7 +28,7 @@
 	if ((self = [super init]))
 	{
 		self.levelsOfDetail = LEVELS_OF_DETAIL; // Zoom levels
-		self.levelsOfDetailBias =LEVELS_OF_DETAIL/2; // Bias
+		self.levelsOfDetailBias =LEVELS_OF_DETAIL-1; // Bias
         self.tileSize = CGSizeMake(512, 512);
       //  self.borderColor = [[UIColor colorWithRed:1 green:0 blue:0 alpha:0.5] CGColor];
       //  self.borderWidth = 1.2;
