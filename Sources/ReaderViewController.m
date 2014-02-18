@@ -731,8 +731,9 @@
 
 - (void)contentView:(ReaderContentView *)contentView touchesBegan:(NSSet *)touches
 {
-            contentView.annotateMode = mainToolbar.getAnnotationState;
-	if ((mainToolbar.hidden == NO) || (mainPagebar.hidden == NO))
+    contentView.annotateMode = mainToolbar.getAnnotationState;
+	
+    if ((mainToolbar.hidden == NO) || (mainPagebar.hidden == NO))
 	{
 		if (touches.count == 1) // Single touches only
 		{
@@ -762,6 +763,7 @@
     [mainToolbar setAnnotationState: ![mainToolbar getAnnotationState]];
     theScrollView.scrollEnabled = !mainToolbar.getAnnotationState;
     [mainToolbar showToolbar];
+    [mainPagebar hidePagebar];
 }
 
 

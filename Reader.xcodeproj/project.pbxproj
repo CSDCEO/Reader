@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0763B66418B3A82A00D4B9FE /* ReaderAnnotationToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0763B66318B3A82A00D4B9FE /* ReaderAnnotationToolbar.m */; };
 		07D852E418A93A0100E81CDA /* Reader-Annotate.png in Resources */ = {isa = PBXBuildFile; fileRef = 07D852E218A93A0100E81CDA /* Reader-Annotate.png */; };
 		07D852E518A93A0100E81CDA /* Reader-Annotate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07D852E318A93A0100E81CDA /* Reader-Annotate@2x.png */; };
 		07D852E818A967D900E81CDA /* Reader-Annotate-H@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07D852E618A967D900E81CDA /* Reader-Annotate-H@2x.png */; };
@@ -74,6 +75,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0763B66218B3A82A00D4B9FE /* ReaderAnnotationToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderAnnotationToolbar.h; sourceTree = "<group>"; };
+		0763B66318B3A82A00D4B9FE /* ReaderAnnotationToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderAnnotationToolbar.m; sourceTree = "<group>"; };
 		07D852E218A93A0100E81CDA /* Reader-Annotate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Reader-Annotate.png"; sourceTree = "<group>"; };
 		07D852E318A93A0100E81CDA /* Reader-Annotate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Reader-Annotate@2x.png"; sourceTree = "<group>"; };
 		07D852E618A967D900E81CDA /* Reader-Annotate-H@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Reader-Annotate-H@2x.png"; sourceTree = "<group>"; };
@@ -351,6 +354,8 @@
 				45AB7312141FC0B1003524C3 /* ThumbsViewController.m */,
 				45AB730F141FC0B1003524C3 /* ThumbsMainToolbar.h */,
 				45AB7310141FC0B1003524C3 /* ThumbsMainToolbar.m */,
+				0763B66218B3A82A00D4B9FE /* ReaderAnnotationToolbar.h */,
+				0763B66318B3A82A00D4B9FE /* ReaderAnnotationToolbar.m */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -485,6 +490,7 @@
 				07D852ED18A96BAA00E81CDA /* Line.m in Sources */,
 				45AB7315141FC0B1003524C3 /* ReaderContentPage.m in Sources */,
 				45AB7316141FC0B1003524C3 /* ReaderContentTile.m in Sources */,
+				0763B66418B3A82A00D4B9FE /* ReaderAnnotationToolbar.m in Sources */,
 				45AB7317141FC0B1003524C3 /* ReaderContentView.m in Sources */,
 				45AB7318141FC0B1003524C3 /* ReaderDocument.m in Sources */,
 				45AB7319141FC0B1003524C3 /* ReaderMainPagebar.m in Sources */,
