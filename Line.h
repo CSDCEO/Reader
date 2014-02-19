@@ -16,6 +16,7 @@
 @property (nonatomic, retain) UIColor *lineColor;
 @property (nonatomic) float opacity;
 @property (nonatomic) CGMutablePathRef linePath;
+@property (nonatomic) CGBlendMode blendMode;
 
 -(id)initWithOptions:(float)lineWidth_ color:(UIColor *)lineColor_ opacity:(float)opacity_;
 

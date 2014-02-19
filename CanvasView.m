@@ -55,6 +55,7 @@
             CGContextSetLineWidth(context, tempLine.lineWidth);
             CGContextSetLineCap(context, kCGLineCapRound);
             CGContextSetLineJoin(context, kCGLineJoinRound);
+            CGContextSetBlendMode(context, tempLine.blendMode);
             CGContextAddPath(context, tempLine.linePath);
             CGContextStrokePath(context);
             
@@ -70,6 +71,7 @@
         CGContextSetLineCap(context, kCGLineCapRound);
         CGContextSetLineJoin(context, kCGLineJoinRound);
         CGContextAddPath(context, lineBuffer.linePath);
+        CGContextSetBlendMode(context, lineBuffer.blendMode);
         CGContextStrokePath(context);
         lineBuffer = NULL;
         NSLog(@"LineBuffer");
@@ -85,6 +87,7 @@
     CGContextSetLineJoin(context, kCGLineJoinRound);
     CGContextBeginPath(context);
     CGContextAddPath(context, self.currentLine.linePath);
+    CGContextSetBlendMode(context, self.currentLine.blendMode);
     CGContextStrokePath(context);
  
     UIGraphicsEndImageContext();

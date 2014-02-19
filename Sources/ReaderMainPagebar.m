@@ -64,12 +64,7 @@
 
 @synthesize delegate;
 
-#pragma mark ReaderMainPagebar class methods
 
-+ (Class)layerClass
-{
-	return [CAGradientLayer class];
-}
 
 #pragma mark ReaderMainPagebar instance methods
 
@@ -146,17 +141,17 @@
 		self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
 		self.backgroundColor = [UIColor clearColor];
 
-		CAGradientLayer *layer = (CAGradientLayer *)self.layer;
+	/*	CAGradientLayer *layer = (CAGradientLayer *)self.layer;
 		UIColor *liteColor = [UIColor colorWithWhite:0.82f alpha:0.8f];
 		UIColor *darkColor = [UIColor colorWithWhite:0.32f alpha:0.8f];
 		layer.colors = [NSArray arrayWithObjects:(id)liteColor.CGColor, (id)darkColor.CGColor, nil];
 
-		CGRect shadowRect = self.bounds; shadowRect.size.height = 4.0f; shadowRect.origin.y -= shadowRect.size.height;
+		CGRect shadowRect = self.bounds; shadowRect.size.height = 4.0f; shadowRect.origin.y =-4;
 
 		ReaderPagebarShadow *shadowView = [[ReaderPagebarShadow alloc] initWithFrame:shadowRect];
 
 		[self addSubview:shadowView]; // Add the shadow to the view
-
+*/
 		CGFloat numberY = (0.0f - (PAGE_NUMBER_HEIGHT + PAGE_NUMBER_SPACE));
 		CGFloat numberX = ((self.bounds.size.width - PAGE_NUMBER_WIDTH) / 2.0f);
 		CGRect numberRect = CGRectMake(numberX, numberY, PAGE_NUMBER_WIDTH, PAGE_NUMBER_HEIGHT);

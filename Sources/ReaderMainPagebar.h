@@ -24,7 +24,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "UIXToolbarView.h"
 #import "ReaderThumbView.h"
 
 @class ReaderMainPagebar;
@@ -40,7 +40,7 @@
 
 @end
 
-@interface ReaderMainPagebar : UIView
+@interface ReaderMainPagebar : UIXToolbarView
 
 @property (nonatomic, weak, readwrite) id <ReaderMainPagebarDelegate> delegate;
 

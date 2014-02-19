@@ -21,6 +21,7 @@
         self.lineColor = [UIColor blackColor];
         self.opacity = 1.0;
         self.linePath = CGPathCreateMutable();
+        self.blendMode = kCGBlendModeNormal;
     }
     return self;
 } 
@@ -31,6 +32,7 @@
         self.lineColor = lineColor_;
         self.opacity = opacity_;
         self.linePath = CGPathCreateMutable();
+        self.blendMode = kCGBlendModeNormal;
     }
     return self;
 }
