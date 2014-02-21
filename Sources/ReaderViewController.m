@@ -31,11 +31,12 @@
 #import "ReaderContentView.h"
 #import "ReaderThumbCache.h"
 #import "ReaderThumbQueue.h"
+#import "ReaderAnnotationToolbar.h"
 
 #import <MessageUI/MessageUI.h>
 
 @interface ReaderViewController () <UIScrollViewDelegate, UIGestureRecognizerDelegate, MFMailComposeViewControllerDelegate,
-									ReaderMainToolbarDelegate, ReaderMainPagebarDelegate, ReaderContentViewDelegate, ThumbsViewControllerDelegate>
+									ReaderMainToolbarDelegate, ReaderMainPagebarDelegate, ReaderContentViewDelegate, ThumbsViewControllerDelegate, ReaderAnnotationToolbarDelegate>
 @end
 
 @implementation ReaderViewController
@@ -47,6 +48,8 @@
 	ReaderMainToolbar *mainToolbar;
 
 	ReaderMainPagebar *mainPagebar;
+    
+    ReaderAnnotationToolbar *annotationToolbar;
 
 	NSMutableDictionary *contentViews;
 
@@ -357,6 +360,12 @@
 	mainPagebar = [[ReaderMainPagebar alloc] initWithFrame:pagebarRect document:document]; // ReaderMainPagebar
 	mainPagebar.delegate = self; // ReaderMainPagebarDelegate
 	[self.view addSubview:mainPagebar];
+    
+    
+    annotationToolbar = [[ReaderAnnotationToolbar alloc] initWithFrame:pagebarRect];
+    annotationToolbar.delegate = self;
+    annotationToolbar.hidden  = YES;
+    [self.view addSubview:annotationToolbar];
     
     
     
@@ -762,8 +771,21 @@
 {
     [mainToolbar setAnnotationState: ![mainToolbar getAnnotationState]];
     theScrollView.scrollEnabled = !mainToolbar.getAnnotationState;
-    [mainToolbar showToolbar];
-    [mainPagebar hidePagebar];
+    
+    if (mainToolbar.getAnnotationState == YES)
+    {
+        [mainToolbar showToolbar];
+        [mainPagebar hidePagebar];
+        [annotationToolbar showToolbar];
+        
+    }
+    else
+    {
+        [mainToolbar showToolbar];
+        [mainPagebar showPagebar];
+        [annotationToolbar hideToolbar];
+    }
+
 }
 
 
@@ -940,6 +962,10 @@
 {
 	[self showDocumentPage:page]; // Show the page
 }
+
+#pragma mark ReaderAnnotationToolbarDelegate methods
+
+
 
 #pragma mark UIApplication notification methods
 

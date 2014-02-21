@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "UIXToolbarView.h"
 @protocol ReaderAnnotationToolbarDelegate <NSObject>
 
 @end
 
-@interface ReaderAnnotationToolbar : UIView
+@interface ReaderAnnotationToolbar : UIXToolbarView
 
 @property (nonatomic, weak, readwrite) id <ReaderAnnotationToolbarDelegate> delegate;
 
